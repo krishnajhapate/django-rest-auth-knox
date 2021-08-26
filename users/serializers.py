@@ -30,9 +30,3 @@ class LoginUserSerializer(serializers.Serializer):
             return user
         raise serializers.ValidationError("Invalid Details")
 
-class UserAPI(generics.RetrieveAPIView):
-    permission_classes = [permissions.IsAuthenticated,]
-    serializer_class = UserSerializer
-
-    def get_object(self):
-        return self.request.user
